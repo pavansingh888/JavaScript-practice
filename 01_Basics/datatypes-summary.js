@@ -40,3 +40,33 @@ const myFunction = function(){  //typeof myFunction = funtion, but it is known a
 console.log(typeof bigNumber);
 
 // https://262.ecma-international.org/5.1/#sec-11.4.3
+
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++
+// $Interview - Stack and Heap memory in JS
+//In early ages reserving memory as well as free up of memory was both our work as programmer. But in todays age, we are not given that much memrory control, since automatic garbage collection exist.
+
+//where they are used :
+// Stack(Primitive) - is used , we get copy of variable
+ //and 
+ //heap(Non-primitive) - is used, we get reference
+ 
+ let myChannelName = "pavansinghdotcom"
+
+ let anothername=myChannelName
+anothername="newnamechannel"
+
+console.log(myChannelName); //pavansinghdotcom
+ console.log(anothername); //newnamechannel
+
+ let user1={
+    email:"pavan@singh.com",
+    upi:"user@paytm"
+ }
+
+ let user2=user1
+
+ user2.email="singh@google"
+
+ console.log(user1.email); //singh@google
+ console.log(user2.email); //singh@google
