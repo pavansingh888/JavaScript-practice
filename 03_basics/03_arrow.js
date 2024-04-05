@@ -64,4 +64,8 @@ const chai = () => {
 const addTwo = (num1,num2) =>( {username:"pavan" } )
 console.log(addTwo(3,4)); //{ username: 'pavan' }
 
+const myArray = [4,6,2,8,2]
 
+// myArray.forEach(function (){})
+// myArray.forEach(() => ())
+// myArray.forEach(() => {})
