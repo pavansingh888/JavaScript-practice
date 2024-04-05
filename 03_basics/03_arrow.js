@@ -25,10 +25,11 @@ const user= {
 // console.log(this); //{}  - refering to node environment, global scope currently don't have any variable. If we use above line of code in chrome console we will get window object as global object. since prevously we only had JS engine in browser. #Interview
 
 
-// function chai(){
-//     let username="pavan"
-//     console.log(this.username); //undefined - so context is only working for objects but not for function
-// }
+function chai(){
+    let username="pavan"
+    console.log(this.username); //undefined - so context is only working for objects but not for function
+    console.log(this); //global node object
+}
 
 // chai()
 
@@ -36,15 +37,16 @@ const user= {
 // const chai = function(){
 //     let username="singh"
 //     console.log(this.username); //undefined
+//     console.log(this); //global node object 
 // }
 
 
-const chai = () => {
-    let username="singh"
-    console.log(this.username); //undefined
-    console.log(this); //{}
-}
-// chai()
+// const chai = () => {
+//     let username="singh"
+//     console.log(this.username); //undefined
+//     console.log(this); //{}
+// }
+chai()
 
 
 // const addTwo = (num1,num2) => {
