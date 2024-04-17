@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<!--
+because it is so common to use document so we can log document directly:
+But inside Window we get jQuery location and other field for document but for loggging only document we don’t get all those field as it’s not of our use.
+We can use console.dir(document) if we want all other information.
+HTML collection is not an array, although we can store it as an array.
+
+
+innertext will give only visible text, but textContent will give all the text hidden by CSS property.
+There is difference between querySelector & queryselectorAll - because of NodeList is not an array: 
+https://www.geeksforgeeks.org/jquery-queryselector-vs-queryselectorall-methods/
+document.querySelector(selectors);
+It returns the first element which matches the selector.
+
+document.querySelectorAll(selectors);
+It returns all the elements which match the selector.
+document.querySelectorAll(selectors)[i];
+It returns the element at index i in the list.   
+
+
+NodeList can be used for array funtions like forEach but its not array.
+To use HTML collection as an array we need to convert it :
+const HTMLArr = Array.from(HTMLCollectionStoringVariable) -- after this we can use for-each on HTML Arr.
+-->
+<body class="bg-black">
+    <div >
+        <h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+    </div>
+</body>
+</html>
