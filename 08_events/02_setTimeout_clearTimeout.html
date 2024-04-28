@@ -20,7 +20,7 @@
     const changeMe = setTimeout(changeText, 2000)
 
     document.querySelector('#stop').addEventListener('click', function(){
-        clearTimeout(changeMe) //Use of clear timeout when click event happens.
+        clearTimeout(changeMe) //Use of clear timeout when click event happens. Will stop execution of setTimeout call back when clicked before 2000 ms.
         console.log("STOPPED")
     })
 </script>
