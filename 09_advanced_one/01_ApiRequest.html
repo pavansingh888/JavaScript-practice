@@ -1,0 +1,39 @@
+//fetch is new, before we used to do XML http requests.Its like legacy way of make requests. but it's used less in todays time by devs.
+
+//V8 engine runs JS like other JS engine. Nodejs is also an implementation of V8 engine. JS actually runs thru C++, similarly Python runs on C++. these wrapper languages made on C++.
+
+//console.log(); is part of JS? it is & it is not.It is a debugger tool of our devtools.So , its not there in JS, JS runtime injects it. like this other APis like document , document.getElement, are not part of core JS
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/pavansingh888'
+    const xhr = new XMLHttpRequest(); //making object of class XMLHttpRequest.
+    console.log(xhr.readyState); //0
+    xhr.open('GET', requestUrl)
+    console.log(xhr.readyState); //1
+
+    xhr.onreadystatechange = function(){ //onreadystatechange requires a callback function to tell what to do when state changes.
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText)
+            console.log(data);
+            console.log(typeof data);
+            console.log(data.followers);
+        }
+    }
+    xhr.send(); //this is when open is been called
+</script>
+</html>
