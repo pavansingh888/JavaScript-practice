@@ -1,0 +1,36 @@
+//#Interview
+
+let names = {
+    firstname : "Pavan",
+    Lastname : "Singh",
+    // printFullname: function(){
+    //     console.log(this.firstname+" "+this.Lastname);
+    // }
+}
+printFullname= function(hometown,state){
+    console.log(this.firstname+" "+this.Lastname+" from "+hometown+","+state);
+}
+// names.printFullname();
+printFullname.call(names,"Delhi","Unknown")
+
+let name2 = {
+    firstname : "Dhoni",
+    Lastname : "Singh",
+}
+
+//======== Call:  function borrowing =========
+
+// names.printFullname.call(name2); //Dhoni Singh  -  function will get called for "this" of name2
+printFullname.call(name2,"bombay","Maharashtra");
+
+//======== apply() : Only difference b/w call and apply method is the way we pass arguments.We pass arguments in a array list instead of passing them seperately.
+
+printFullname.apply(name2,["bombay","Maharashtra"]);
+
+//============= bind() ==============
+//bind looks exactly same as call method, only difference is instead of directly calling the method , bind methods binds the method printFullname with a object and returns us the copy of that object.
+//It will return us the method which we can call later.
+
+let printMyName =printFullname.bind(name2,"Mumbai","Maharashtra");
+console.log(printMyName); //[Function: bound printFullname]
+printMyName(); //Dhoni Singh from Mumbai,Maharashtra
