@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure aur chai</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+
+    <script>
+//================================= LEXICAL SCOPING =================================================
+
+/*
+Lexical Scoping:
+Lexical scoping, also known as static scoping. In JavaScript, lexical scoping means that the scope of a variable is determined by its position within the source code's lexical structure (i.e., the physical placement of code within the file), rather than by how functions are called at runtime.
+- InnerFunction can access variables declared in its containing scope (outerFunction), as well as variables declared in any outer scopes, including the global scope.
+*/
+
+    // function init() {
+    //     let name = "Mozilla"; 
+    //     function displayName() {
+    //         console.log(name); 
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    // function outer(){
+    //     let username = "hitesh"
+    //     // console.log("OUTER", secret); //Uncaught ReferenceError: secret is not defined
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner", username); //work
+    //     }
+    //     function innerTwo(){
+    //         console.log("innerTwo", username); //work
+    //         // console.log(secret); //Uncaught ReferenceError: secret is not defined
+    //     }
+    //     inner()
+    //     innerTwo()
+
+    // }
+    // outer()
+    // console.log("TOO OUTER", username); //Uncaught ReferenceError: username is not defined
+
+//=========================================== CLOSURE ================================================
+/*
+Closures:
+A closure is a combination of a function and the lexical environment within which that function was declared. In simpler terms, a closure allows a function to maintain access to variables from its containing (enclosing) scope even after the containing function has finished executing.
+innerFunction forms a closure over the outerVariable defined in outerFunction. Even after outerFunction has finished executing and outerVariable would typically be out of scope, the closure maintains a reference to outerVariable, allowing innerFunction to still access its value when called.
+useful for creating functions with private data or for implementing callback functions and event handlers.
+*/
+
+
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName; //Not calling the function, rather we are returning the reference of this function and it will take variables declared in its lexical scope with it while getting returned out of its outer function.
+    // }
+
+    // const myFunc = makeFunc(); //will return displayname function's reference with the variables in the lexical scope of displayName function i.e 'name'
+    // myFunc();
+
+    </script>
+    <script>
+//========================== REALTIME USE CASE OF CLOSURE ======================================
+
+        // document.getElementById("orange").onclick = function(){
+        //     document.body.style.backgroundColor = `orange`
+        // }
+        // document.getElementById("green").onclick = function(){
+        //     document.body.style.backgroundColor = `green`
+        // }
+
+        function clickHandler(color){
+            // document.body.style.backgroundColor = `${color}`
+
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+
+    </script>
+</html>
